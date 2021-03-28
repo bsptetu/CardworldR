@@ -485,12 +485,24 @@ function Sprite_StateIconChild() {
     Sprite_StateIconChild.prototype.setRingPosition = function(radian) {
         this.x       = Math.cos(radian) * paramRadiusX;
         this.y       = Math.sin(radian) * paramRadiusY;
+
+
+    if (this._iconIndex > 239) {
+        this.y       = Math.sin(radian) * paramRadiusY -60;
+    }
+
         this.visible = true;
     };
 
     Sprite_StateIconChild.prototype.setNormalPosition = function(index, max) {
         this.x       = ((-max + 1) / 2 + index) * Sprite_StateIcon._iconWidth;
         this.y       = 0;
+
+
+    if (this._iconIndex > 239) {
+        this.y       =  -60;
+    }
+
         this.visible = true;
     };
 

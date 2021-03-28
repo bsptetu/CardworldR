@@ -58,7 +58,22 @@
             result.critical = (Math.random() < this.itemCri(target));
             var value = this.makeDamageValue(target, result.critical);
             this.executeDamage(target, value);
+              if (this.item().damage.type === 1) {
+                if (target.result().hpDamage > 0) {
+                    this.item().effects.forEach(function(effect) {
+                    this.applyItemEffect(target, effect);
+                    }, this);
+                }
+                    this.applyItemUserEffect(target);
+              } else {
+                  this.item().effects.forEach(function(effect) {
+                  this.applyItemEffect(target, effect);
+                  }, this);
+                  this.applyItemUserEffect(target);
+              }
           }
+        }
+        if (this.item().damage.type === 0) {
           this.item().effects.forEach(function(effect) {
             this.applyItemEffect(target, effect);
           }, this);

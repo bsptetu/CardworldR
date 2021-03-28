@@ -343,11 +343,11 @@ Window_BattleLog.prototype.updateWaitCount = function() {
 	var waitMax;
 	var waitMin;
 	if (Input.isPressed('ok') || TouchInput.isPressed()){
-   	    waitMax = 3 * Sepher.Param.logWaitBoost;
-    	waitMin = 1 * Sepher.Param.logWaitBoost;
+   	    waitMax = 0;//3 * Sepher.Param.logWaitBoost;
+    	waitMin = 0;//1 * Sepher.Param.logWaitBoost;
    	}else{
    	    waitMax = 3 * Sepher.Param.logWaitDefault;
-    	waitMin = 1 * Sepher.Param.logWaitDefault;
+    	waitMin = 0;//1 * Sepher.Param.logWaitDefault;
 	}
 
     if (this._waitCount > 0) {

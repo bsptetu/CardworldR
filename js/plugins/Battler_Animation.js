@@ -27,13 +27,13 @@
  * の様に連番にします。
  *
  * 仕様
- *
+ * 村人Aさんの簡易モーションを改変　改変：ナイン
  * アニメーションの判定で名前に _ があるかで分岐しているので
  * 名前に _ をつける場合は、アニメーション画像だけにして下さい。
  * デフォルトで入っている
  * Actor1_〇〇、General_〇〇は名前を変更しないとエラーが出ますので注意して下さい。
  *
- * アニメーション画像が、一瞬ちらつくことがありますが、画像読み込み時の仕様です。
+ * アニメーション画像が、一瞬ちらつくことがありますがあったのをスプライトシートで対応。
  *
  * 
  * readmeやスタッフロールの明記、使用報告は任意
@@ -51,13 +51,12 @@
  */
 
 var Battler_Animation = Battler_Animation || {};
-Battler_Animation.Status = []; // 格納用に配列の作成
+Battler_Animation.Status = []; 
 Battler_Animation.Parameters = PluginManager.parameters('Battler_Animation');
-// 初期設定
+
 Battler_Animation.Status[0] = Number(Battler_Animation.Parameters["Wait"])  || 10
 Battler_Animation.Status[1] = Number(Battler_Animation.Parameters["Animation"])  || 6
 
-// 追加
 var _Sprite_Enemy_updateBitmap_Battler_Animation = Sprite_Enemy.prototype.updateBitmap;
 Sprite_Enemy.prototype.updateBitmap = function() {
 	_Sprite_Enemy_updateBitmap_Battler_Animation.call(this);
@@ -66,57 +65,83 @@ Sprite_Enemy.prototype.updateBitmap = function() {
 	this._set_animations(name, hue);
 };
 
-// 追加
 var _Sprite_Enemy_initialize_Battler_Animation = Sprite_Enemy.prototype.initialize;
 Sprite_Enemy.prototype.initialize = function(battler) {
 	_Sprite_Enemy_initialize_Battler_Animation.call(this, battler);
-	this._wait_cnt  = 0; // 追加
-	this._anime_cnt = 1; // 追加
-	// 事前に読み込み
+	this._wait_cnt  = 0;
+	this._anime_cnt = 0;
 	var name = battler.battlerName();
     var hue = battler.battlerHue();
-	var _name = name.split("_") // 名前を分割
+	var _name = name.split("_")
 	if (_name[1] === undefined) {
-		this.loadBitmap(name, hue); // アニメーションなし
+		this.loadBitmap(name, hue);
 	}
 	else {
-		// 事前に読み込み
 		this._bitmaps  = [this.bitmap];
 		if (this._bitmaps[2] === undefined) {
 			for (var i = 2; i < Battler_Animation.Status[1]; i++) {
-				if (i > 9) {
-					var filename = _name[0] + '_' + String(i);
-				}
-				else {
-					var filename = _name[0] + '_' + String(0) + String(i);
-				}
+					var filename = _name[0] + '_' + String(0) + String(1);
 				this._bitmaps[i] = ImageManager.loadEnemy(filename, hue);
 			}
 		}
 	}
 };
 
-// 追加
 Sprite_Enemy.prototype._set_animations = function(name, hue) {
-	// アニメーション判定
 	if ((this._wait_cnt % Battler_Animation.Status[0]) === 0) {
-		// カウントリセット判定
 		if (this._anime_cnt > Battler_Animation.Status[1]) {
-			this._anime_cnt = 1 // カウントリセット
+			this._anime_cnt = 0
 		}
-		var _name = name.split("_") // 名前を分割
+		var _name = name.split("_")
 		if (_name[1] === undefined) {
-			this.loadBitmap(name, hue); // アニメーションなし
+			this.loadBitmap(name, hue);
 		}
 		else {
-			if (this._anime_cnt > 9) { // 9以上
-				this.loadBitmap(_name[0] + '_' + String(this._anime_cnt), hue); // 画像の読み込み
-			}
-			else { // 9以下
-				this.loadBitmap(_name[0] + '_' + String(0) + String(this._anime_cnt), hue); // 画像の読み込み
-			}
+				//this.loadBitmap(name, hue)
+				//this.loadBitmap(_name[0] + '_' + String(0) + String(1), 0, false); // 画像の読み込み
+				//var frameY = this._anime_cnt;
+				//this.setFrame(0,frameY * 120,120,150);
 		}
-		this._anime_cnt += 1; // 表示アニメ判定
+//
+		this._anime_cnt += 1;
+		if (this._anime_cnt === 5) {
+		this._anime_cnt = 1;
+		}
+//
 	}
 	this._wait_cnt = (this._wait_cnt + 1) % (Battler_Animation.Status[1] * Battler_Animation.Status[0])
 }
+
+Sprite_Enemy.prototype.updateFrame = function() {
+    Sprite_Battler.prototype.updateFrame.call(this);
+    var frameHeight = this.bitmap.height;
+    if (this._effectType === 'bossCollapse') {
+        frameHeight = this._effectDuration;
+    }
+		var widthEnwmy = this.bitmap.width
+		if (widthEnwmy < 120) {
+		      this.setFrame(0, 0, this.bitmap.width, frameHeight);
+		}
+		else {
+		if (widthEnwmy > 480) {
+		　　if ($gameSwitches.value(597)) {
+   		　　   if ($gameSwitches.value(598)) {
+		         var frameY = this._anime_cnt;
+		         this.setFrame(0,300,120,150);
+		　　   }
+		　　   else {
+		         var frameY = this._anime_cnt;
+		         this.setFrame(0,150,120,150);
+		　　   }
+		　　}
+		　　else {
+		      var frameY = this._anime_cnt;
+		      this.setFrame(frameY * 120,0,120,150);
+		　　}
+		}
+		else {
+		      var frameY = this._anime_cnt;
+		      this.setFrame(frameY * 80,0,80,108);
+		}
+		}
+};

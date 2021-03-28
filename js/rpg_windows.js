@@ -3860,9 +3860,9 @@ Window_ChoiceList.prototype.updatePlacement = function() {
         break;
     }
     if (messageY >= Graphics.boxHeight / 2) {
-        this.y = messageY - this.height;
+        this.y = 600;messageY - this.height;
     } else {
-        this.y = messageY + this._messageWindow.height;
+        this.y = 600;messageY + this._messageWindow.height;
     }
 };
 
@@ -3883,9 +3883,9 @@ Window_ChoiceList.prototype.numVisibleRows = function() {
     var choices = $gameMessage.choices();
     var numLines = choices.length;
     var maxLines = 8;
-    if (messageY < centerY && messageY + messageHeight > centerY) {
-        maxLines = 4;
-    }
+    //if (messageY < centerY && messageY + messageHeight > centerY) {
+    //    maxLines = 4;
+    //}
     if (numLines > maxLines) {
         numLines = maxLines;
     }

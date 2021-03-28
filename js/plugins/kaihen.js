@@ -12,11 +12,11 @@ Game_Battler.prototype.performMiss = function() {
 };
 
 Window_BattleLog.prototype.animationBaseDelay = function() {
-    return 1;
+    return 0;
 };
 
 Window_BattleLog.prototype.animationNextDelay = function() {
-    return 1;
+    return 0;
 };
 
 Window_BattleLog.prototype.updateWaitCount = function() {
@@ -183,7 +183,7 @@ Sprite_Actor.prototype.damageOffsetX = function() {
 };
 
 Sprite_Actor.prototype.damageOffsetY = function() {
-    return 50;
+    return 80;
 };
 
 Sprite_Enemy.prototype.damageOffsetX = function() {
@@ -191,7 +191,7 @@ Sprite_Enemy.prototype.damageOffsetX = function() {
 };
 
 Sprite_Enemy.prototype.damageOffsetY = function() {
-    return 50;
+    return 80;
 };
 
 Sprite_Enemy.prototype.startCollapse = function() {
@@ -208,4 +208,8 @@ ImageManager.loadBitmap = function(folder, filename, hue, smooth) {
     } else {
         return this.loadEmptyBitmap();
     }
+};
+
+Window_BattleLog.prototype.messageSpeed = function() {
+    return 0;
 };
