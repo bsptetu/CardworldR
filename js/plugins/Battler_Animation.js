@@ -118,30 +118,178 @@ Sprite_Enemy.prototype.updateFrame = function() {
     if (this._effectType === 'bossCollapse') {
         frameHeight = this._effectDuration;
     }
+    if (this._effectType === 'Whiten') {
 		var widthEnwmy = this.bitmap.width
 		if (widthEnwmy < 120) {
 		      this.setFrame(0, 0, this.bitmap.width, frameHeight);
-		}
-		else {
+		} else {		
 		if (widthEnwmy > 480) {
 		　　if ($gameSwitches.value(597)) {
    		　　   if ($gameSwitches.value(598)) {
 		         var frameY = this._anime_cnt;
 		         this.setFrame(0,300,120,150);
-		　　   }
-		　　   else {
+		　　   } else {
 		         var frameY = this._anime_cnt;
 		         this.setFrame(0,150,120,150);
 		　　   }
-		　　}
-		　　else {
+		　　} else {
 		      var frameY = this._anime_cnt;
 		      this.setFrame(frameY * 120,0,120,150);
 		　　}
+		} else {
+		      var frameY = this._anime_cnt;
+		      this.setFrame(frameY * 80,108,80,108);
 		}
-		else {
+		}
+    } else {
+		var widthEnwmy = this.bitmap.width
+		if (widthEnwmy < 120) {
+		      this.setFrame(0, 0, this.bitmap.width, frameHeight);
+		} else {		
+		if (widthEnwmy > 480) {
+		　　if ($gameSwitches.value(597)) {
+   		　　   if ($gameSwitches.value(598)) {
+		         var frameY = this._anime_cnt;
+		         this.setFrame(0,300,120,150);
+		　　   } else {
+		         var frameY = this._anime_cnt;
+		         this.setFrame(0,150,120,150);
+		　　   }
+		　　} else {
+		      var frameY = this._anime_cnt;
+		      this.setFrame(frameY * 120,0,120,150);
+		　　}
+		} else {
 		      var frameY = this._anime_cnt;
 		      this.setFrame(frameY * 80,0,80,108);
 		}
 		}
+    }
+};
+
+Sprite_Enemy.prototype.updateWhiten = function() {
+    var widthEnwmy = this.bitmap.width
+    if (widthEnwmy > 480) {
+    } else {
+    this._shake = this._effectDuration % 5 * 3 - 2;
+    //this.blendMode = Graphics.BLEND_ADD;
+    //this.opacity *= this._effectDuration / (this._effectDuration + 1);
+    //this.setBlendColor([255, 255, 255, 255 - this.opacity]);
+    }
+};
+
+/***********************************************************
+ * ■アクターのダメージ演出
+ ***********************************************************/
+/**
+ * ●アクターの初期化処理
+ */
+var _Sprite_Actor_initMembers = Sprite_Actor.prototype.initMembers;
+Sprite_Actor.prototype.initMembers = function() {
+    _Sprite_Actor_initMembers.apply(this, arguments);
+
+    this._effectType = null;
+    this._effectDuration = 0;
+    this._shake = 0;
+};
+
+Sprite_Battler.prototype.updatePosition = function() {
+    this.x = this._homeX + this._offsetX;
+    this.y = this._homeY + this._offsetY;
+    this.x += this._shake;
+};
+
+/**
+ * ●更新
+ */
+var _Sprite_Actor_update = Sprite_Actor.prototype.update;
+Sprite_Actor.prototype.update = function() {
+    _Sprite_Actor_update.apply(this, arguments);
+
+    // エフェクト更新追加
+    if (this._actor) {
+        this.updateEffect();
+    }
+};
+
+/**
+ * ●ダメージ演出
+ */
+var _Game_Actor_performDamage = Game_Actor.prototype.performDamage;
+Game_Actor.prototype.performDamage = function() {
+    _Game_Actor_performDamage.apply(this, arguments);
+        this.requestEffect('blink');
+};
+
+/**
+ * ●アクターのダメージ効果音
+ */
+var _SoundManager_playActorDamage = SoundManager.playActorDamage;
+SoundManager.playActorDamage = function() {
+    _SoundManager_playActorDamage.apply(this, arguments);
+};
+
+/**
+ * ●点滅開始
+ */
+Sprite_Actor.prototype.startBlink = function() {
+    // 点滅時間を設定
+    this._effectDuration = 20;
+};
+
+/**
+ * ●エフェクトの設定
+ */
+Sprite_Actor.prototype.setupEffect = function() {
+    if (this._actor.isEffectRequested()) {
+        this.startEffect(this._actor.effectType());
+        this._actor.clearEffect();
+    }
+};
+
+
+/**
+ * ●エフェクト開始
+ */
+Sprite_Actor.prototype.startEffect = function(effectType) {
+    this._effectType = effectType;
+    switch (this._effectType) {
+    case 'blink':
+        this.startBlink();
+        break;
+    }
+    // this.revertToNormal();
+};
+
+/**
+ * ●エフェクト更新
+ */
+Sprite_Actor.prototype.updateEffect = function() {
+    this.setupEffect();
+    if (this._effectDuration > 0) {
+        this._effectDuration--;
+        switch (this._effectType) {
+        case 'blink':
+            this.updateBlink();
+            break;
+        }
+        if (this._effectDuration === 0) {
+            this._effectType = null;
+        }
+    }
+};
+
+/**
+ * ●エフェクト判定
+ */
+Sprite_Actor.prototype.isEffecting = function() {
+    return this._effectType !== null;
+};
+
+/**
+ * ●点滅演出更新
+ */
+Sprite_Actor.prototype.updateBlink = function() {
+      this._shake = (this._effectDuration % 5 * 3 - 2) * -1;
+    //this.opacity = (this._effectDuration % 10 < 5) ? 255 : 0;
 };

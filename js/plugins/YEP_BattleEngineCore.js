@@ -4376,9 +4376,9 @@ Game_Enemy.prototype.skills = function() {
 
 Game_Enemy.prototype.performActionStart = function(action) {
     Game_Battler.prototype.performActionStart.call(this, action);
-    if (!$gameSystem.isSideView() || !this.spriteCanMove()) {
-      this.requestEffect('whiten');
-    }
+    //if (!$gameSystem.isSideView() || !this.spriteCanMove()) {
+      //this.requestEffect('whiten');
+    //}
 };
 
 Yanfly.BEC.Game_Enemy_performDamage = Game_Enemy.prototype.performDamage;
@@ -4386,6 +4386,7 @@ Game_Enemy.prototype.performDamage = function() {
     if ($gameSystem.isSideView()) {
       Game_Battler.prototype.performDamage.call(this);
       SoundManager.playEnemyDamage();
+this.requestEffect('whiten');
     } else {
       Yanfly.BEC.Game_Enemy_performDamage.call(this);
     }
