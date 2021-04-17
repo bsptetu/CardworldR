@@ -48,8 +48,8 @@
 		if (window.RPGAtsumaru && window.RPGAtsumaru.popups && window.RPGAtsumaru.popups.openLink) {
 			window.RPGAtsumaru.popups.openLink(url);
 		} else if (this._errorPrinter) {
-			var link = '<a href="' + url + '" target="_blank" id="HyperLink" style="color:red;font-size: 30pt;background-color: #eee;border-radius: 1em;">' + title + '</a>';
-			this._errorPrinter.innerHTML = this._makeErrorHtml(description, link);
+			var link = '<a href="index.html" id="HyperLink"><img src="taitoruhe.png"></a>';
+			this._errorPrinter.innerHTML = this._makeErrorHtml("", link);
 			var a = document.getElementById('HyperLink');
 			a.addEventListener('mousedown', stopPropagation);
 			a.addEventListener('touchstart', stopPropagation);
