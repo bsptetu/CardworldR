@@ -45,21 +45,13 @@
 	}
 
 	Graphics.printLink = function(url, title) {
-		if (window.RPGAtsumaru && window.RPGAtsumaru.popups && window.RPGAtsumaru.popups.openLink) {
-			window.RPGAtsumaru.popups.openLink(url);
-		} else if (this._errorPrinter) {
-			var link = '<a href="index1.html" id="HyperLink"><img src="slight.png"></a>';
-			this._errorPrinter.innerHTML = this._makeErrorHtml(description, link);
+		if (this._errorPrinter) {
+			var link = '<a href="index1.html" id="HyperLink" class="saba1"><img src="slight.png"></a><a href="index2.html" id="HyperLink" class="saba2"><img src="sdarkness.png"></a><a href="index3.html" id="HyperLink" class="saba3"><img src="sNature.png"></a>';
+			this._errorPrinter.innerHTML = this._makeErrorHtml("", link);
 			var a = document.getElementById('HyperLink');
 			a.addEventListener('mousedown', stopPropagation);
 			a.addEventListener('touchstart', stopPropagation);
 			a.addEventListener('click', function(event) {
-				if (Utils.isNwjs()) {
-					var exec = require('child_process').exec;
-					var command = process.platform === 'win32' ? 'rundll32.exe url.dll,FileProtocolHandler' : 'open';
-					exec(command + ' "' + url + '"');
-					event.preventDefault();
-				}
 			});
 		}
 	};
