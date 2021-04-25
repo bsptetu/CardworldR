@@ -663,28 +663,35 @@ Window_VisualHPGauge.prototype.drawActorHp = function(actor, x, y, width) {
     } else {
       this.drawGauge(x, y, width, rate, color1, color2);
     }
-    if (Yanfly.Param.VHGShowValue)  {
+    //if (Yanfly.Param.VHGShowValue)  {
       var val = this._displayedValue
-      var max = actor.mhp;
+      var maxma = actor.mat - 1;
+      var max = actor.atk - 1;
       var w = width;
       var wy = y + 11;
-this.contents.fontSize = 23;
+this.contents.fontSize = 22;
       var color = this.hpColor(actor);
       this.drawCurrentAndMax(val, max, x, wy, w, color, this.normalColor());
-    }
+    //}
 };
 
 Window_VisualHPGauge.prototype.drawCurrentAndMax = function(current, max, x, y,
                                                    width, color1, color2) {
-    if (Yanfly.Param.VHGShowMax) {
-      Window_Base.prototype.drawCurrentAndMax.call(this, current, max,
-        x, y, width, color1, color2);
-    } else {
+    //if (Yanfly.Param.VHGShowMax) {
+      //Window_Base.prototype.drawCurrentAndMax.call(this, current, max,
+        //x, y, width, color1, color2);
+    //} else {
       var align = Yanfly.Param.VHGShowHP ? 'right' : 'center';
       var text = Yanfly.Util.toGroup(current);
       this.changeTextColor(color1);
+if (width > 108) {
       this.drawText(text, x, y, width, align);
-    }
+} else {
+      this.drawText(text, x, y, width, align);
+      this.drawText(max+'        ', x, y, width, align);
+}
+
+    //}
 };
 
 Window_VisualHPGauge.prototype.gaugeHeight = function() {

@@ -5277,9 +5277,9 @@ if (!Yanfly.Param.BECCurMax) {
 
 Window_BattleStatus.prototype.drawCurrentAndMax = function(current, max, x, y,
                                                    width, color1, color2) {
-    var labelWidth = this.textWidth('HP');
+    //var labelWidth = this.textWidth('HP');
     var valueWidth = this.textWidth(Yanfly.Util.toGroup(max));
-    var slashWidth = this.textWidth('/');
+    var slashWidth = 0;//this.textWidth('/');
     var x1 = x + width - valueWidth;
     this.changeTextColor(color1);
     this.drawText(Yanfly.Util.toGroup(current), x1, y, valueWidth, 'right');
