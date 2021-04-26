@@ -46,9 +46,21 @@
 
 	Graphics.printLink = function(url, title) {
 		if (this._errorPrinter) {
-			var link = '<a href="index1.html" id="HyperLink" class="saba1"><img src="slight.png"></a><a href="index2.html" id="HyperLink" class="saba2"><img src="sdarkness.png"></a><a href="index3.html" id="HyperLink" class="saba3"><img src="sNature.png"></a>';
+			var link = '<a href="index1.html" id="HyperLink" class="saba1"><img src="slight.png"></a><a href="index2.html" id="HyperLink2" class="saba2"><img src="sdarkness.png"></a><a href="index3.html" id="HyperLink3" class="saba3"><img src="sNature.png"></a>';
 			this._errorPrinter.innerHTML = this._makeErrorHtml("", link);
 			var a = document.getElementById('HyperLink');
+			a.addEventListener('mousedown', stopPropagation);
+			a.addEventListener('touchstart', stopPropagation);
+			a.addEventListener('click', function(event) {
+			});
+
+			var a = document.getElementById('HyperLink2');
+			a.addEventListener('mousedown', stopPropagation);
+			a.addEventListener('touchstart', stopPropagation);
+			a.addEventListener('click', function(event) {
+			});
+
+			var a = document.getElementById('HyperLink3');
 			a.addEventListener('mousedown', stopPropagation);
 			a.addEventListener('touchstart', stopPropagation);
 			a.addEventListener('click', function(event) {
