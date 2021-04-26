@@ -65,6 +65,7 @@
 			a.addEventListener('touchstart', stopPropagation);
 			a.addEventListener('click', function(event) {
 			});
+
 		}
 	};
 
