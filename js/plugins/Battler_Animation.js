@@ -142,6 +142,32 @@ Sprite_Enemy.prototype.updateFrame = function() {
 		}
 		}
     } else {
+
+    if (this._effectType === 'Attack') {
+		var widthEnwmy = this.bitmap.width
+		if (widthEnwmy < 120) {
+		      this.setFrame(0, 0, this.bitmap.width, frameHeight);
+		} else {		
+		if (widthEnwmy > 480) {
+		　　if ($gameSwitches.value(597)) {
+   		　　   if ($gameSwitches.value(598)) {
+		         var frameY = this._anime_cnt;
+		         this.setFrame(0,300,120,150);
+		　　   } else {
+		         var frameY = this._anime_cnt;
+		         this.setFrame(0,150,120,150);
+		　　   }
+		　　} else {
+		      var frameY = this._anime_cnt;
+		      this.setFrame(frameY * 120,0,120,150);
+		　　}
+		} else {
+		      var frameY = this._anime_cnt;
+		      this.setFrame(frameY * 80,108,80,108);
+		}
+		}
+    } else {
+
 		var widthEnwmy = this.bitmap.width
 		if (widthEnwmy < 120) {
 		      this.setFrame(0, 0, this.bitmap.width, frameHeight);
@@ -162,6 +188,7 @@ Sprite_Enemy.prototype.updateFrame = function() {
 		} else {
 		      var frameY = this._anime_cnt;
 		      this.setFrame(frameY * 80,0,80,108);
+		}
 		}
 		}
     }
@@ -221,6 +248,11 @@ Game_Actor.prototype.performDamage = function() {
         this.requestEffect('blink');
 };
 
+var _Game_Actor_performAttack = Game_Actor.prototype.performAttack;
+Game_Actor.prototype.performAttack = function() {
+    this.requestEffect('Attack');
+};
+
 /**
  * ●アクターのダメージ効果音
  */
@@ -235,6 +267,10 @@ SoundManager.playActorDamage = function() {
 Sprite_Actor.prototype.startBlink = function() {
     // 点滅時間を設定
     this._effectDuration = 20;
+};
+Sprite_Actor.prototype.startAttack = function() {
+    // 点滅時間を設定
+    this._effectDuration = 10;
 };
 
 /**
@@ -257,6 +293,9 @@ Sprite_Actor.prototype.startEffect = function(effectType) {
     case 'blink':
         this.startBlink();
         break;
+    case 'Attack':
+        this.startAttack();
+        break;
     }
     // this.revertToNormal();
 };
@@ -271,6 +310,9 @@ Sprite_Actor.prototype.updateEffect = function() {
         switch (this._effectType) {
         case 'blink':
             this.updateBlink();
+            break;
+        case 'Attack':
+            this.updateAttack();
             break;
         }
         if (this._effectDuration === 0) {
@@ -291,5 +333,9 @@ Sprite_Actor.prototype.isEffecting = function() {
  */
 Sprite_Actor.prototype.updateBlink = function() {
       this._shake = (this._effectDuration % 5 * 3 - 2) * -1;
+    //this.opacity = (this._effectDuration % 10 < 5) ? 255 : 0;
+};
+Sprite_Actor.prototype.updateAttack = function() {
+    this.scale.x = (this._effectDuration/10);//this._shake = (this._effectDuration % 5 * 3 - 2) * -1;
     //this.opacity = (this._effectDuration % 10 < 5) ? 255 : 0;
 };

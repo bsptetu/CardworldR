@@ -4377,7 +4377,7 @@ Game_Enemy.prototype.skills = function() {
 Game_Enemy.prototype.performActionStart = function(action) {
     Game_Battler.prototype.performActionStart.call(this, action);
     //if (!$gameSystem.isSideView() || !this.spriteCanMove()) {
-      //this.requestEffect('whiten');
+      this.requestEffect('Attack');
     //}
 };
 

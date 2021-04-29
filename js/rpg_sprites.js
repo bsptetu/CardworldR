@@ -1030,6 +1030,9 @@ Sprite_Enemy.prototype.startEffect = function(effectType) {
     case 'blink':
         this.startBlink();
         break;
+    case 'Attack':
+        this.startAttack();
+        break;
     case 'collapse':
         this.startCollapse();
         break;
@@ -1061,6 +1064,10 @@ Sprite_Enemy.prototype.startBlink = function() {
     this._effectDuration = 20;
 };
 
+Sprite_Enemy.prototype.startAttack = function() {
+    this._effectDuration = 10;
+};
+
 Sprite_Enemy.prototype.startCollapse = function() {
     this._effectDuration = 32;
     this._appeared = false;
@@ -1086,6 +1093,9 @@ Sprite_Enemy.prototype.updateEffect = function() {
             break;
         case 'blink':
             this.updateBlink();
+            break;
+        case 'Attack':
+            this.updateAttack();
             break;
         case 'appear':
             this.updateAppear();
@@ -1127,6 +1137,13 @@ Sprite_Enemy.prototype.updateWhiten = function() {
 
 Sprite_Enemy.prototype.updateBlink = function() {
     this.opacity = (this._effectDuration % 10 < 5) ? 255 : 0;
+};
+
+Sprite_Enemy.prototype.updateAttack = function() {
+var widthEnwmy = this.bitmap.width
+if (widthEnwmy < 120) {
+    this.scale.x = (this._effectDuration/10);//(this._effectDuration % 10 < 5) ? 100 : 0;
+}
 };
 
 Sprite_Enemy.prototype.updateAppear = function() {
