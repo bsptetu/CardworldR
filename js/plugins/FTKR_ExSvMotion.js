@@ -932,6 +932,7 @@ FTKR.ESM = FTKR.ESM || {};
             var motion = this.esmMotion(action.item(), 'spell');
             this.requestMotion(motion);
         } else if (action.isSkill()) {
+    this.requestEffect('Attack');
             var motion = this.esmMotion(action.item(), 'skill');
             this.requestMotion(motion);
         } else if (action.isItem()) {

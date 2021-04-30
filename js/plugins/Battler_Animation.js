@@ -270,7 +270,12 @@ Sprite_Actor.prototype.startBlink = function() {
 };
 Sprite_Actor.prototype.startAttack = function() {
     // 点滅時間を設定
+    var bitmap = this._mainSprite.bitmap.width;
+    if (bitmap < 120) {
     this._effectDuration = 10;
+    } else{
+    this._effectDuration = 1;
+    }
 };
 
 /**
@@ -336,6 +341,8 @@ Sprite_Actor.prototype.updateBlink = function() {
     //this.opacity = (this._effectDuration % 10 < 5) ? 255 : 0;
 };
 Sprite_Actor.prototype.updateAttack = function() {
+    var bitmap = this._mainSprite.bitmap.width;
+    if (bitmap < 120) {
     this.scale.x = (this._effectDuration/10);//this._shake = (this._effectDuration % 5 * 3 - 2) * -1;
-    //this.opacity = (this._effectDuration % 10 < 5) ? 255 : 0;
+    }//this.opacity = (this._effectDuration % 10 < 5) ? 255 : 0;
 };
