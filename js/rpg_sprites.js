@@ -1065,7 +1065,7 @@ Sprite_Enemy.prototype.startBlink = function() {
 };
 
 Sprite_Enemy.prototype.startAttack = function() {
-    this._effectDuration = 10;
+    this._effectDuration = 15;
 };
 
 Sprite_Enemy.prototype.startCollapse = function() {
@@ -1142,7 +1142,7 @@ Sprite_Enemy.prototype.updateBlink = function() {
 Sprite_Enemy.prototype.updateAttack = function() {
 var widthEnwmy = this.bitmap.width
 if (widthEnwmy < 120) {
-    this.scale.x = (this._effectDuration/10);//(this._effectDuration % 10 < 5) ? 100 : 0;
+    this.scale.x = (this._effectDuration/15);//(this._effectDuration % 10 < 5) ? 100 : 0;
 }
 };
 
