@@ -1065,7 +1065,13 @@ Sprite_Enemy.prototype.startBlink = function() {
 };
 
 Sprite_Enemy.prototype.startAttack = function() {
+var widthEnwmy = this.bitmap.width
+    if (widthEnwmy < 120) {
+    AudioManager.playSe({"name":"Book1","volume":50,"pitch":150,"pan":0})
     this._effectDuration = 15;
+    } else{
+    this._effectDuration = 1;
+    }
 };
 
 Sprite_Enemy.prototype.startCollapse = function() {

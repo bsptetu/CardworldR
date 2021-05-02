@@ -272,6 +272,7 @@ Sprite_Actor.prototype.startAttack = function() {
     // 点滅時間を設定
     var bitmap = this._mainSprite.bitmap.width;
     if (bitmap < 120) {
+AudioManager.playSe({"name":"Book1","volume":50,"pitch":150,"pan":0})
     this._effectDuration = 15;
     } else{
     this._effectDuration = 1;
