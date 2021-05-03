@@ -58,10 +58,8 @@ var getServerTime = (function() {
     try {
         xhr.send();
         startServerTime = new Date(xhr.getResponseHeader('Date') || Date.now()).getTime();
-$gameSwitches.setValue(665,true);
     } catch (error) {
         startServerTime = Date.now();
-$gameSwitches.setValue(665,true);
     }
     startServerTime -= performance.now();
     return function() {
