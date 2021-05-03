@@ -57,12 +57,16 @@ var getServerTime = (function() {
     xhr.open('HEAD', location.href + '?' + Date.now(), false);
     try {
         xhr.send();
-        startServerTime = new Date(xhr.getResponseHeader('Date') || Date.now()).getTime();
+        //startServerTime = new Date(xhr.getResponseHeader('Date') || Date.now()).getTime();
+var req_t = new Date(xhr.getResponseHeader('Date') || new Date());
+startServerTime = req_t.getFullYear() + '/'+ (req_t.getMonth()+1) + '/'+ (req_t.getDate());
     } catch (error) {
-        startServerTime = Date.now();
+        //startServerTime = Date.now();
+var req_t = new Date();
+startServerTime = req_t.getFullYear() + '/'+ (req_t.getMonth()+1) + '/'+ (req_t.getDate());
     }
-    startServerTime -= performance.now();
+    //startServerTime -= performance.now();
     return function() {
-        return startServerTime + performance.now();
+        return startServerTime;// + performance.now();
     };
 })();
