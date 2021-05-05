@@ -271,7 +271,7 @@ Sprite_Actor.prototype.startBlink = function() {
 Sprite_Actor.prototype.startAttack = function() {
     // 点滅時間を設定
     var bitmap = this._mainSprite.bitmap.width;
-    if (bitmap < 120) {
+    if (bitmap < 82) {
 AudioManager.playSe({"name":"Book1","volume":50,"pitch":150,"pan":0})
     this._effectDuration = 15;
     } else{
@@ -343,7 +343,7 @@ Sprite_Actor.prototype.updateBlink = function() {
 };
 Sprite_Actor.prototype.updateAttack = function() {
     var bitmap = this._mainSprite.bitmap.width;
-    if (bitmap < 120) {
+    if (bitmap < 82) {
     this.scale.x = (this._effectDuration/15);//this._shake = (this._effectDuration % 5 * 3 - 2) * -1;
     }//this.opacity = (this._effectDuration % 10 < 5) ? 255 : 0;
 };
