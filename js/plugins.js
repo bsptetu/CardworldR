@@ -42,7 +42,7 @@ var $plugins =
 {"name":"OnlineAvatar","status":false,"description":"Firebaseを使ってプレイヤーをオンライン同期します。","parameters":{"apiKey":"AIzaSyB4K8bEYWvm9zmhIztRN03ylljTYijbiT","authDomain":"cardworldr2.firebaseapp.com","databaseURL":"https://cardworldr2-default-rtdb.firebaseio.com","avatarEvent":"0","syncSwitchStart":"0","syncSwitchEnd":"0","syncVariableStart":"4002","syncVariableEnd":"4993"}},
 {"name":"CustomizeErrorScreen","status":true,"description":"エラー画面表示改善プラグイン","parameters":{"MainMessage":"以下のエラーが発生しました。","HyperLink":"","OutputDetail":"true"}},
 {"name":"PicturePriorityCustomize","status":true,"description":"ピクチャの表示優先度調整プラグイン","parameters":{"上層ピクチャ番号":"0","下層ピクチャ番号":"102","下層ピクチャZ座標":"1","戦闘下層ピクチャZ座標":"0"}},
-{"name":"PictureVariableSetting","status":true,"description":"ピクチャ関連のイベント機能拡張プラグイン","parameters":{"初期値":"OFF","ピクチャ表示最大数":"120"}},
+{"name":"PictureVariableSetting","status":true,"description":"ピクチャ関連のイベント機能拡張プラグイン","parameters":{"初期値":"OFF","ピクチャ表示最大数":"130"}},
 {"name":"YED_SideviewBattler","status":true,"description":"v1.0.0 様々なタイプのサイドビューバトラーを生成できます。","parameters":{"[Default Setting]":"","Default Frames":"1","Default Speed":"10","Default Frame Width":"96","Default Frame Height":"96","Enable Weapon":"true"}},
 {"name":"kaihen","status":true,"description":"","parameters":{}},
 {"name":"Battler_Animation","status":true,"description":"戦闘時、敵をアニメーションさせます。","parameters":{"Wait":"10","Animation":"5"}},

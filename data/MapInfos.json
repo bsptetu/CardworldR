@@ -27,6 +27,6 @@ null,
 {"id":25,"expanded":true,"name":"試練の塔戦闘後","order":25,"parentId":0,"scrollX":423,"scrollY":447.5},
 {"id":26,"expanded":false,"name":"曜日イベント1","order":26,"parentId":0,"scrollX":832,"scrollY":640},
 {"id":27,"expanded":false,"name":"曜日イベント後","order":27,"parentId":0,"scrollX":418,"scrollY":439.5},
-{"id":28,"expanded":false,"name":"曜日イベント2","order":28,"parentId":0,"scrollX":423,"scrollY":447.5},
+{"id":28,"expanded":false,"name":"曜日イベント2","order":28,"parentId":0,"scrollX":832,"scrollY":640},
 {"id":29,"expanded":false,"name":"曜日イベント2後","order":29,"parentId":0,"scrollX":832,"scrollY":640}
 ]
