@@ -1,7 +1,7 @@
 [
 null,
 {"id":1,"expanded":true,"name":"MAP001","order":1,"parentId":0,"scrollX":673.3333333333334,"scrollY":597.3333333333334},
-{"id":2,"expanded":false,"name":"サーバー選択","order":2,"parentId":1,"scrollX":408,"scrollY":439.5},
+{"id":2,"expanded":false,"name":"サーバー選択","order":2,"parentId":1,"scrollX":423,"scrollY":448},
 {"id":3,"expanded":true,"name":"MAP003","order":3,"parentId":2,"scrollX":832,"scrollY":640},
 {"id":4,"expanded":false,"name":"MAP004","order":4,"parentId":3,"scrollX":832,"scrollY":640},
 {"id":5,"expanded":false,"name":"ホーム画面","order":5,"parentId":1,"scrollX":423,"scrollY":448},
