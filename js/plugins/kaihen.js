@@ -213,3 +213,13 @@ ImageManager.loadBitmap = function(folder, filename, hue, smooth) {
 Window_BattleLog.prototype.messageSpeed = function() {
     return 0;
 };
+
+(function () {
+  var _render = Graphics.render;
+  Graphics.render = function (stage) {
+    if (this._skipCount < 0) {
+      this._skipCount = 0;
+    }
+    _render.call(this, stage);
+  };
+})();
