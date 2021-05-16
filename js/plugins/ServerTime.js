@@ -59,11 +59,11 @@ var getServerTime = (function() {
         xhr.send();
         //startServerTime = new Date(xhr.getResponseHeader('Date') || Date.now()).getTime();
 var req_t = new Date(xhr.getResponseHeader('Date') || new Date());
-startServerTime = req_t.getFullYear() + '/'+ (req_t.getMonth()+1) + '/'+ (req_t.getDate());
+startServerTime = (req_t.getFullYear()*10000) + ((req_t.getMonth()+1)*100) + (req_t.getDate());
     } catch (error) {
         //startServerTime = Date.now();
 var req_t = new Date();
-startServerTime = req_t.getFullYear() + '/'+ (req_t.getMonth()+1) + '/'+ (req_t.getDate());
+startServerTime = (req_t.getFullYear()*10000) + ((req_t.getMonth()+1)*100) + (req_t.getDate());
     }
     //startServerTime -= performance.now();
     return function() {
