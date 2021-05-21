@@ -2250,7 +2250,7 @@ Scene_Battle.prototype.update = function() {
     var active = this.isActive();
     $gameTimer.update(active);
     $gameScreen.update();
-    this.updateStatusWindow();
+    //this.updateStatusWindow();
     this.updateWindowPositions();
     if (active && !this.isBusy()) {
         this.updateBattleProcess();

@@ -4499,13 +4499,13 @@ Game_Troop.prototype.allMembers = function() {
 Yanfly.BEC.Scene_Battle_update = Scene_Battle.prototype.update;
 Scene_Battle.prototype.update = function() {
     Yanfly.BEC.Scene_Battle_update.call(this);
-    this.updateStatusWindowRequests();
+    //this.updateStatusWindowRequests();
 };
 
 Scene_Battle.prototype.updateStatusWindowRequests = function() {
     if (!this._statusWindow) return;
     if (this._statusWindow.isClosed()) return;
-    this._statusWindow.updateStatusRequests();
+    //this._statusWindow.updateStatusRequests();
 };
 
 Yanfly.BEC.Scene_Battle_createSkillWindow =
