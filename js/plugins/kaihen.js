@@ -102,7 +102,7 @@ Window_BattleStatus.prototype.initialize = function() {
 };
 
 Window_PartyCommand.prototype.initialize = function() {
-    var y = 720;Graphics.boxHeight - this.windowHeight();
+    var y = 650;Graphics.boxHeight - this.windowHeight();
     Window_Command.prototype.initialize.call(this, 500, y);
     this.openness = 0;
     this.deactivate();
@@ -129,7 +129,7 @@ Window_PartyCommand.prototype.windowWidth = function() {
 };
 
 Window_PartyCommand.prototype.numVisibleRows = function() {
-    return 2;
+    return 3;
 };
 
 Window_BattleLog.prototype.initialize = function() {
