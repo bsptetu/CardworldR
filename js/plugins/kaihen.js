@@ -214,6 +214,27 @@ Window_BattleLog.prototype.messageSpeed = function() {
     return 0;
 };
 
+Game_Unit.prototype.randomTarget = function() {
+ if (this.tgrSum() !== 0) {
+    var tgrRand = Math.random() * this.tgrSum();
+    var target = null;
+    this.aliveMembers().forEach(function(member) {
+        tgrRand -= member.tgr;
+        if (tgrRand <= 0 && !target) {
+            target = member;
+        }
+    });
+  }
+    var tgrRand = Math.random() * this.tgrSum();
+    this.aliveMembers().forEach(function(member) {
+        tgrRand -= member.tgr;
+        if (tgrRand <= 0 && !target) {
+            target = member;
+        }
+    });
+    return target;
+};
+
 (function () {
   var _render = Graphics.render;
   Graphics.render = function (stage) {

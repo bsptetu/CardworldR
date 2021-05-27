@@ -7584,21 +7584,21 @@ Game_Player.prototype.makeEncounterCount = function() {
 Game_Player.prototype.makeEncounterTroopId = function() {
     var encounterList = [];
     var weightSum = 0;
-    $gameMap.encounterList().forEach(function(encounter) {
-        if (this.meetsEncounterConditions(encounter)) {
-            encounterList.push(encounter);
-            weightSum += encounter.weight;
-        }
-    }, this);
-    if (weightSum > 0) {
-        var value = Math.randomInt(weightSum);
-        for (var i = 0; i < encounterList.length; i++) {
-            value -= encounterList[i].weight;
-            if (value < 0) {
-                return encounterList[i].troopId;
-            }
-        }
-    }
+//    $gameMap.encounterList().forEach(function(encounter) {
+//        if (this.meetsEncounterConditions(encounter)) {
+//            encounterList.push(encounter);
+//            weightSum += encounter.weight;
+//        }
+//    }, this);
+//    if (weightSum > 0) {
+//        var value = Math.randomInt(weightSum);
+//        for (var i = 0; i < encounterList.length; i++) {
+//            value -= encounterList[i].weight;
+//            if (value < 0) {
+//                return encounterList[i].troopId;
+//            }
+//        }
+//    }
     return 0;
 };
 
