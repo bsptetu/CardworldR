@@ -15,7 +15,7 @@ null,
 {"id":13,"expanded":false,"name":"図鑑","order":13,"parentId":0,"scrollX":423,"scrollY":447.5},
 {"id":14,"expanded":false,"name":"名声","order":14,"parentId":0,"scrollX":578,"scrollY":596.6666666666666},
 {"id":15,"expanded":false,"name":"バトル","order":15,"parentId":0,"scrollX":423,"scrollY":448},
-{"id":16,"expanded":true,"name":"大戦後","order":16,"parentId":0,"scrollX":454.5,"scrollY":448},
+{"id":16,"expanded":true,"name":"大戦後","order":16,"parentId":0,"scrollX":832,"scrollY":640},
 {"id":17,"expanded":true,"name":"クエスト後","order":17,"parentId":0,"scrollX":423,"scrollY":448},
 {"id":18,"expanded":false,"name":"レイド","order":18,"parentId":0,"scrollX":832,"scrollY":640},
 {"id":19,"expanded":false,"name":"レイド大戦後","order":19,"parentId":0,"scrollX":454.5,"scrollY":448},
@@ -29,5 +29,8 @@ null,
 {"id":27,"expanded":false,"name":"曜日イベント後","order":27,"parentId":0,"scrollX":423,"scrollY":448},
 {"id":28,"expanded":false,"name":"曜日イベント2","order":28,"parentId":0,"scrollX":832,"scrollY":640},
 {"id":29,"expanded":false,"name":"曜日イベント2後","order":29,"parentId":0,"scrollX":423,"scrollY":447.5},
-{"id":30,"expanded":false,"name":"曜日イベ土","order":30,"parentId":0,"scrollX":423,"scrollY":447}
+{"id":30,"expanded":false,"name":"曜日イベ土","order":30,"parentId":0,"scrollX":832,"scrollY":640},
+{"id":31,"expanded":false,"name":"曜日イベ土後","order":31,"parentId":0,"scrollX":832,"scrollY":640},
+{"id":32,"expanded":false,"name":"曜日イベ日","order":32,"parentId":0,"scrollX":423,"scrollY":447},
+{"id":33,"expanded":false,"name":"曜日イベ日後","order":33,"parentId":0,"scrollX":423,"scrollY":447}
 ]
