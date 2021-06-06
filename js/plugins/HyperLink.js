@@ -48,7 +48,11 @@
 		if (window.RPGAtsumaru && window.RPGAtsumaru.popups && window.RPGAtsumaru.popups.openLink) {
 			window.RPGAtsumaru.popups.openLink(url);
 		} else if (this._errorPrinter) {
-			var link = '<a href="index.html" id="HyperLink"><img src="taitoruhe.png"></a>';
+	if ($gameSwitches.value(689)) {
+	var link = '<a href="https://twitter.com/gameNine9" id="HyperLink" target="_blank"><img src="taitoruhe3.png"></a>';
+	} else {
+	var link = '<a href="index.html" id="HyperLink"><img src="taitoruhe.png"></a>';
+	}
 			this._errorPrinter.innerHTML = this._makeErrorHtml("", link);
 			var a = document.getElementById('HyperLink');
 			a.addEventListener('mousedown', stopPropagation);
