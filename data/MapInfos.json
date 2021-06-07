@@ -28,9 +28,9 @@ null,
 {"id":26,"expanded":false,"name":"曜日イベント1","order":26,"parentId":0,"scrollX":440,"scrollY":390.22222222222223},
 {"id":27,"expanded":false,"name":"曜日イベント後","order":27,"parentId":0,"scrollX":423.1111111111111,"scrollY":390.22222222222223},
 {"id":28,"expanded":false,"name":"曜日イベント2","order":28,"parentId":0,"scrollX":440,"scrollY":390.22222222222223},
-{"id":29,"expanded":false,"name":"曜日イベント2後","order":29,"parentId":0,"scrollX":423,"scrollY":447.5},
+{"id":29,"expanded":false,"name":"曜日イベント2後","order":29,"parentId":0,"scrollX":423.1111111111111,"scrollY":390.22222222222223},
 {"id":30,"expanded":false,"name":"曜日イベ土","order":30,"parentId":0,"scrollX":440,"scrollY":390.22222222222223},
-{"id":31,"expanded":false,"name":"曜日イベ土後","order":31,"parentId":0,"scrollX":832,"scrollY":640},
+{"id":31,"expanded":false,"name":"曜日イベ土後","order":31,"parentId":0,"scrollX":440,"scrollY":390.22222222222223},
 {"id":32,"expanded":false,"name":"曜日イベ日","order":32,"parentId":0,"scrollX":423.1111111111111,"scrollY":390.22222222222223},
 {"id":33,"expanded":false,"name":"曜日イベ日後","order":33,"parentId":0,"scrollX":423.1111111111111,"scrollY":390.22222222222223}
 ]
