@@ -1,7 +1,7 @@
 [
 null,
 {"id":1,"expanded":true,"name":"MAP001","order":1,"parentId":0,"scrollX":673.3333333333334,"scrollY":597.3333333333334},
-{"id":2,"expanded":true,"name":"サーバー選択","order":2,"parentId":1,"scrollX":423,"scrollY":448},
+{"id":2,"expanded":true,"name":"サーバー選択","order":2,"parentId":1,"scrollX":832,"scrollY":640},
 {"id":3,"expanded":true,"name":"MAP003","order":3,"parentId":2,"scrollX":832,"scrollY":640},
 {"id":4,"expanded":false,"name":"MAP004","order":4,"parentId":3,"scrollX":832,"scrollY":640},
 {"id":5,"expanded":false,"name":"ホーム画面","order":5,"parentId":1,"scrollX":423.1111111111111,"scrollY":389.3333333333333},
@@ -28,9 +28,9 @@ null,
 {"id":26,"expanded":false,"name":"曜日イベント1","order":26,"parentId":0,"scrollX":440,"scrollY":390.22222222222223},
 {"id":27,"expanded":false,"name":"曜日イベント後","order":27,"parentId":0,"scrollX":423.1111111111111,"scrollY":390.22222222222223},
 {"id":28,"expanded":false,"name":"曜日イベント2","order":28,"parentId":0,"scrollX":440,"scrollY":390.22222222222223},
-{"id":29,"expanded":false,"name":"曜日イベント2後","order":29,"parentId":0,"scrollX":423.1111111111111,"scrollY":390.22222222222223},
+{"id":29,"expanded":false,"name":"曜日イベント2後","order":29,"parentId":0,"scrollX":423.1111111111111,"scrollY":389.3333333333333},
 {"id":30,"expanded":false,"name":"曜日イベ土","order":30,"parentId":0,"scrollX":440,"scrollY":390.22222222222223},
-{"id":31,"expanded":false,"name":"曜日イベ土後","order":31,"parentId":0,"scrollX":440,"scrollY":390.22222222222223},
+{"id":31,"expanded":false,"name":"曜日イベ土後","order":31,"parentId":0,"scrollX":440,"scrollY":389.3333333333333},
 {"id":32,"expanded":false,"name":"曜日イベ日","order":32,"parentId":0,"scrollX":423.1111111111111,"scrollY":390.22222222222223},
 {"id":33,"expanded":false,"name":"曜日イベ日後","order":33,"parentId":0,"scrollX":423.1111111111111,"scrollY":390.22222222222223}
 ]
