@@ -3011,7 +3011,7 @@ Game_Battler.prototype.refresh = function() {
     Game_BattlerBase.prototype.refresh.call(this);
     if (this.hp === 0) {
         this.addState(this.deathStateId());
-        $gameTemp.reserveCommonEvent(19);
+        //$gameTemp.reserveCommonEvent(19);
     } else {
         this.removeState(this.deathStateId());
     }
