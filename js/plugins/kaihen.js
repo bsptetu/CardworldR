@@ -244,3 +244,18 @@ Game_Unit.prototype.randomTarget = function() {
     _render.call(this, stage);
   };
 })();
+
+(() => {
+
+    SceneManager.isGameActive = function () {
+        if ($gameSystem.GameInactiveStop != true) { return true; }
+        try {
+            return window.top.document.hasFocus();
+        } catch (e) {
+
+            return true;
+        }
+    };
+
+
+})();
