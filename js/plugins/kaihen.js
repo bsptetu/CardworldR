@@ -211,7 +211,7 @@ ImageManager.loadBitmap = function(folder, filename, hue, smooth) {
 };
 
 Window_BattleLog.prototype.messageSpeed = function() {
-    return 0;
+    return 0.1;
 };
 
 Game_Unit.prototype.randomTarget = function() {

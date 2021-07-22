@@ -1738,8 +1738,8 @@ Graphics.initialize = function(width, height, type) {
     this._boxWidth = this._width;
     this._boxHeight = this._height;
 
-    this._scale = 0.7;
-    this._realScale = 0.7;
+    this._scale = (1080 / document.documentElement.clientWidth)-0.04;0.7;
+    this._realScale = (1080 / document.documentElement.clientWidth)-0.04;0.7;
 
     this._errorShowed = false;
     this._errorPrinter = null;

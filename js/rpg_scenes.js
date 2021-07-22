@@ -2241,7 +2241,7 @@ Scene_Battle.prototype.create = function() {
 
 Scene_Battle.prototype.start = function() {
     Scene_Base.prototype.start.call(this);
-    this.startFadeIn(this.fadeSpeed(), false);
+    this.startFadeIn(0, false);
     BattleManager.playBattleBgm();
     BattleManager.startBattle();
 };
@@ -2606,8 +2606,8 @@ Scene_Battle.prototype.onItemCancel = function() {
 
 Scene_Battle.prototype.onSelectAction = function() {
     var action = BattleManager.inputtingAction();
-    this._skillWindow.hide();
-    this._itemWindow.hide();
+    //this._skillWindow.hide();
+    //this._itemWindow.hide();
     if (!action.needsSelection()) {
         this.selectNextCommand();
     } else if (action.isForOpponent()) {
@@ -2620,7 +2620,7 @@ Scene_Battle.prototype.onSelectAction = function() {
 Scene_Battle.prototype.endCommandSelection = function() {
     this._partyCommandWindow.close();
     this._actorCommandWindow.close();
-    this._statusWindow.deselect();
+    //this._statusWindow.deselect();
 };
 
 //-----------------------------------------------------------------------------
